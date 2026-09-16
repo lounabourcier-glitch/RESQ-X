@@ -1,0 +1,1198 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2865
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="en">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <title>RESQ-X \'97 Autonomous & Remotely Supervised Quadrupedal Rescue Vehicle</title>\
+    \
+    <!-- Google Fonts -->\
+    <link rel="preconnect" href="https://fonts.googleapis.com">\
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">\
+    \
+    <!-- Lucide Icons -->\
+    <script src="https://unpkg.com/lucide@latest"></script>\
+\
+    <style>\
+        :root \{\
+            /* Palette: Dark Sophisticated with High-Visibility Emergency Accents */\
+            --bg-dark: #0A0D10;\
+            --bg-card: #12171D;\
+            --bg-card-hover: #192028;\
+            --border-color: rgba(255, 255, 255, 0.08);\
+            --border-highlight: rgba(255, 59, 48, 0.3);\
+            \
+            --text-primary: #F0F4F8;\
+            --text-secondary: #94A3B8;\
+            --text-muted: #64748B;\
+            \
+            --accent-red: #FF3B30; /* High-Visibility International Rescue Red */\
+            --accent-red-hover: #E02D22;\
+            --accent-orange: #FF9500; /* Emergency Warning Accent */\
+            --accent-glow: rgba(255, 59, 48, 0.15);\
+            \
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;\
+            --font-mono: 'JetBrains Mono', monospace;\
+            \
+            --radius-sm: 6px;\
+            --radius-md: 12px;\
+            --radius-lg: 20px;\
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);\
+        \}\
+\
+        /* Base Reset */\
+        * \{\
+            margin: 0;\
+            padding: 0;\
+            box-sizing: border-box;\
+        \}\
+\
+        html \{\
+            scroll-behavior: smooth;\
+            background-color: var(--bg-dark);\
+            color: var(--text-primary);\
+            font-family: var(--font-sans);\
+            line-height: 1.6;\
+            -webkit-font-smoothing: antialiased;\
+        \}\
+\
+        body \{\
+            overflow-x: hidden;\
+        \}\
+\
+        /* Typography Helper Classes */\
+        .mono \{\
+            font-family: var(--font-mono);\
+            letter-spacing: -0.02em;\
+        \}\
+\
+        .tag \{\
+            display: inline-flex;\
+            align-items: center;\
+            gap: 8px;\
+            padding: 6px 14px;\
+            background: rgba(255, 59, 48, 0.1);\
+            border: 1px solid rgba(255, 59, 48, 0.25);\
+            border-radius: 100px;\
+            color: var(--accent-red);\
+            font-size: 0.8rem;\
+            font-weight: 600;\
+            text-transform: uppercase;\
+            letter-spacing: 0.08em;\
+            margin-bottom: 1.5rem;\
+        \}\
+\
+        .tag-dot \{\
+            width: 6px;\
+            height: 6px;\
+            background-color: var(--accent-red);\
+            border-radius: 50%;\
+            box-shadow: 0 0 8px var(--accent-red);\
+        \}\
+\
+        h1, h2, h3, h4 \{\
+            color: var(--text-primary);\
+            font-weight: 700;\
+            line-height: 1.15;\
+            letter-spacing: -0.03em;\
+        \}\
+\
+        h2 \{\
+            font-size: clamp(2.2rem, 4vw, 3.2rem);\
+            margin-bottom: 1rem;\
+        \}\
+\
+        p.section-subtitle \{\
+            font-size: 1.15rem;\
+            color: var(--text-secondary);\
+            max-width: 680px;\
+            margin-bottom: 3.5rem;\
+            font-weight: 400;\
+        \}\
+\
+        /* Utility Layout */\
+        .container \{\
+            max-width: 1280px;\
+            margin: 0 auto;\
+            padding: 0 2rem;\
+        \}\
+\
+        section \{\
+            padding: 7rem 0;\
+            border-bottom: 1px solid var(--border-color);\
+            position: relative;\
+        \}\
+\
+        /* Buttons */\
+        .btn \{\
+            display: inline-flex;\
+            align-items: center;\
+            justify-content: center;\
+            gap: 10px;\
+            padding: 14px 28px;\
+            font-size: 0.95rem;\
+            font-weight: 600;\
+            border-radius: var(--radius-sm);\
+            cursor: pointer;\
+            transition: var(--transition);\
+            text-decoration: none;\
+            border: none;\
+        \}\
+\
+        .btn-primary \{\
+            background-color: var(--accent-red);\
+            color: #FFFFFF;\
+            box-shadow: 0 4px 20px rgba(255, 59, 48, 0.3);\
+        \}\
+\
+        .btn-primary:hover \{\
+            background-color: var(--accent-red-hover);\
+            transform: translateY(-2px);\
+            box-shadow: 0 6px 25px rgba(255, 59, 48, 0.45);\
+        \}\
+\
+        .btn-secondary \{\
+            background-color: rgba(255, 255, 255, 0.05);\
+            color: var(--text-primary);\
+            border: 1px solid var(--border-color);\
+        \}\
+\
+        .btn-secondary:hover \{\
+            background-color: rgba(255, 255, 255, 0.1);\
+            border-color: rgba(255, 255, 255, 0.2);\
+            transform: translateY(-2px);\
+        \}\
+\
+        /* Navigation */\
+        header \{\
+            position: fixed;\
+            top: 0;\
+            left: 0;\
+            width: 100%;\
+            z-index: 1000;\
+            background: rgba(10, 13, 16, 0.85);\
+            backdrop-filter: blur(12px);\
+            border-bottom: 1px solid var(--border-color);\
+            padding: 1.2rem 0;\
+        \}\
+\
+        .nav-wrapper \{\
+            display: flex;\
+            justify-content: space-between;\
+            align-items: center;\
+        \}\
+\
+        .logo \{\
+            display: flex;\
+            align-items: center;\
+            gap: 10px;\
+            font-size: 1.4rem;\
+            font-weight: 800;\
+            letter-spacing: -0.03em;\
+            color: var(--text-primary);\
+            text-decoration: none;\
+        \}\
+\
+        .logo-badge \{\
+            background: var(--accent-red);\
+            color: #fff;\
+            font-size: 0.65rem;\
+            padding: 2px 6px;\
+            border-radius: 4px;\
+            font-weight: 700;\
+        \}\
+\
+        .nav-links \{\
+            display: flex;\
+            gap: 2rem;\
+            list-style: none;\
+        \}\
+\
+        .nav-links a \{\
+            color: var(--text-secondary);\
+            text-decoration: none;\
+            font-size: 0.9rem;\
+            font-weight: 500;\
+            transition: var(--transition);\
+        \}\
+\
+        .nav-links a:hover \{\
+            color: var(--text-primary);\
+        \}\
+\
+        /* Hero Section */\
+        .hero \{\
+            padding: 10rem 0 6rem 0;\
+            min-height: 90vh;\
+            display: flex;\
+            align-items: center;\
+            background: radial-gradient(circle at 50% 20%, rgba(255, 59, 48, 0.08) 0%, rgba(10, 13, 16, 1) 70%);\
+            position: relative;\
+            overflow: hidden;\
+        \}\
+\
+        .hero-grid \{\
+            display: grid;\
+            grid-template-columns: 1fr 1fr;\
+            gap: 4rem;\
+            align-items: center;\
+        \}\
+\
+        .hero-content h1 \{\
+            font-size: clamp(2.8rem, 5vw, 4.2rem);\
+            margin-bottom: 1.5rem;\
+            letter-spacing: -0.04em;\
+        \}\
+\
+        .hero-content p.hero-subheadline \{\
+            font-size: 1.25rem;\
+            color: var(--text-secondary);\
+            margin-bottom: 2.5rem;\
+            font-weight: 400;\
+        \}\
+\
+        .hero-actions \{\
+            display: flex;\
+            gap: 1rem;\
+            flex-wrap: wrap;\
+        \}\
+\
+        .hero-image-wrapper \{\
+            position: relative;\
+            border-radius: var(--radius-lg);\
+            overflow: hidden;\
+            border: 1px solid var(--border-color);\
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);\
+            background: var(--bg-card);\
+        \}\
+\
+        .hero-image-wrapper img \{\
+            width: 100%;\
+            height: auto;\
+            display: block;\
+            object-fit: cover;\
+            transition: transform 0.7s ease;\
+        \}\
+\
+        .hero-image-wrapper:hover img \{\
+            transform: scale(1.02);\
+        \}\
+\
+        .hero-overlay-status \{\
+            position: absolute;\
+            bottom: 20px;\
+            left: 20px;\
+            background: rgba(18, 23, 29, 0.85);\
+            backdrop-filter: blur(10px);\
+            border: 1px solid var(--border-color);\
+            padding: 12px 20px;\
+            border-radius: var(--radius-sm);\
+            display: flex;\
+            align-items: center;\
+            gap: 12px;\
+            font-size: 0.85rem;\
+            color: var(--text-secondary);\
+        \}\
+\
+        /* Problem Section */\
+        .problem-grid \{\
+            display: grid;\
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\
+            gap: 2rem;\
+            margin-top: 2rem;\
+        \}\
+\
+        .problem-card \{\
+            background: var(--bg-card);\
+            border: 1px solid var(--border-color);\
+            padding: 2.5rem;\
+            border-radius: var(--radius-md);\
+            transition: var(--transition);\
+        \}\
+\
+        .problem-card:hover \{\
+            border-color: rgba(255, 255, 255, 0.15);\
+            transform: translateY(-4px);\
+        \}\
+\
+        .problem-icon \{\
+            width: 48px;\
+            height: 48px;\
+            border-radius: var(--radius-sm);\
+            background: rgba(255, 59, 48, 0.1);\
+            color: var(--accent-red);\
+            display: flex;\
+            align-items: center;\
+            justify-content: center;\
+            margin-bottom: 1.5rem;\
+        \}\
+\
+        .problem-card h3 \{\
+            font-size: 1.3rem;\
+            margin-bottom: 0.8rem;\
+        \}\
+\
+        .problem-card p \{\
+            color: var(--text-secondary);\
+            font-size: 0.95rem;\
+        \}\
+\
+        /* Solution Section */\
+        .solution-layout \{\
+            display: grid;\
+            grid-template-columns: 1fr 1fr;\
+            gap: 4rem;\
+            align-items: center;\
+        \}\
+\
+        .solution-features \{\
+            display: grid;\
+            grid-template-columns: repeat(2, 1fr);\
+            gap: 1.5rem;\
+        \}\
+\
+        .solution-feature-item \{\
+            background: var(--bg-card);\
+            border: 1px solid var(--border-color);\
+            padding: 1.25rem;\
+            border-radius: var(--radius-sm);\
+            display: flex;\
+            align-items: center;\
+            gap: 1rem;\
+        \}\
+\
+        .solution-feature-item i \{\
+            color: var(--accent-red);\
+        \}\
+\
+        /* How It Works (Timeline/Steps) */\
+        .step-grid \{\
+            display: grid;\
+            grid-template-columns: repeat(5, 1fr);\
+            gap: 1.5rem;\
+            position: relative;\
+        \}\
+\
+        .step-card \{\
+            background: var(--bg-card);\
+            border: 1px solid var(--border-color);\
+            padding: 2rem 1.5rem;\
+            border-radius: var(--radius-md);\
+            position: relative;\
+        \}\
+\
+        .step-number \{\
+            font-family: var(--font-mono);\
+            font-size: 0.9rem;\
+            color: var(--accent-red);\
+            background: rgba(255, 59, 48, 0.1);\
+            padding: 4px 8px;\
+            border-radius: 4px;\
+            display: inline-block;\
+            margin-bottom: 1rem;\
+            font-weight: 700;\
+        \}\
+\
+        .step-card h3 \{\
+            font-size: 1.15rem;\
+            margin-bottom: 0.5rem;\
+        \}\
+\
+        .step-card p \{\
+            font-size: 0.875rem;\
+            color: var(--text-secondary);\
+        \}\
+\
+        /* Grid Tech Cards */\
+        .tech-grid \{\
+            display: grid;\
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\
+            gap: 1.5rem;\
+        \}\
+\
+        .tech-card \{\
+            background: var(--bg-card);\
+            border: 1px solid var(--border-color);\
+            padding: 2rem;\
+            border-radius: var(--radius-md);\
+            transition: var(--transition);\
+        \}\
+\
+        .tech-card:hover \{\
+            border-color: var(--border-highlight);\
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);\
+        \}\
+\
+        .tech-card i \{\
+            color: var(--accent-red);\
+            margin-bottom: 1rem;\
+        \}\
+\
+        .tech-card h3 \{\
+            font-size: 1.2rem;\
+            margin-bottom: 0.5rem;\
+        \}\
+\
+        .tech-card p \{\
+            color: var(--text-secondary);\
+            font-size: 0.9rem;\
+        \}\
+\
+        /* Feature Focus Box (Human First / Safety) */\
+        .human-first-box \{\
+            background: linear-gradient(135deg, rgba(18, 23, 29, 1) 0%, rgba(25, 32, 40, 0.8) 100%);\
+            border: 1px solid var(--border-color);\
+            border-radius: var(--radius-lg);\
+            padding: 4rem;\
+        \}\
+\
+        .human-list \{\
+            display: grid;\
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));\
+            gap: 1.5rem;\
+            margin-top: 2.5rem;\
+        \}\
+\
+        .human-item \{\
+            display: flex;\
+            align-items: center;\
+            gap: 12px;\
+            font-weight: 500;\
+            color: var(--text-primary);\
+        \}\
+\
+        .human-item i \{\
+            color: var(--accent-red);\
+        \}\
+\
+        /* Use Cases Grid */\
+        .use-case-grid \{\
+            display: grid;\
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));\
+            gap: 2rem;\
+        \}\
+\
+        .use-case-card \{\
+            background: var(--bg-card);\
+            border: 1px solid var(--border-color);\
+            border-radius: var(--radius-md);\
+            overflow: hidden;\
+            transition: var(--transition);\
+        \}\
+\
+        .use-case-card:hover \{\
+            transform: translateY(-4px);\
+            border-color: rgba(255, 255, 255, 0.2);\
+        \}\
+\
+        .use-case-body \{\
+            padding: 2rem;\
+        \}\
+\
+        .use-case-body h3 \{\
+            font-size: 1.3rem;\
+            margin-bottom: 0.5rem;\
+        \}\
+\
+        .use-case-body p \{\
+            color: var(--text-secondary);\
+            font-size: 0.95rem;\
+        \}\
+\
+        /* Specs Table Style */\
+        .specs-grid \{\
+            display: grid;\
+            grid-template-columns: 1fr 1fr;\
+            gap: 2rem;\
+            background: var(--bg-card);\
+            border: 1px solid var(--border-color);\
+            border-radius: var(--radius-lg);\
+            padding: 3rem;\
+        \}\
+\
+        .spec-item \{\
+            display: flex;\
+            justify-content: space-between;\
+            padding: 1rem 0;\
+            border-bottom: 1px solid var(--border-color);\
+        \}\
+\
+        .spec-label \{\
+            color: var(--text-secondary);\
+            font-weight: 500;\
+        \}\
+\
+        .spec-value \{\
+            color: var(--text-primary);\
+            font-family: var(--font-mono);\
+            font-weight: 600;\
+        \}\
+\
+        /* Pricing Card */\
+        .pricing-box \{\
+            background: var(--bg-card);\
+            border: 1px solid var(--border-highlight);\
+            border-radius: var(--radius-lg);\
+            padding: 4rem;\
+            max-width: 800px;\
+            margin: 0 auto;\
+            text-align: center;\
+            position: relative;\
+            box-shadow: 0 0 50px rgba(255, 59, 48, 0.08);\
+        \}\
+\
+        .pricing-price \{\
+            font-size: 3.5rem;\
+            font-weight: 800;\
+            margin: 1.5rem 0 0.5rem 0;\
+            color: var(--text-primary);\
+            font-family: var(--font-mono);\
+        \}\
+\
+        .pricing-includes \{\
+            list-style: none;\
+            margin: 2rem 0;\
+            display: flex;\
+            flex-wrap: wrap;\
+            justify-content: center;\
+            gap: 1.5rem;\
+        \}\
+\
+        .pricing-includes li \{\
+            display: flex;\
+            align-items: center;\
+            gap: 8px;\
+            color: var(--text-secondary);\
+            font-size: 0.95rem;\
+        \}\
+\
+        .pricing-includes li i \{\
+            color: var(--accent-red);\
+        \}\
+\
+        /* Contact Form */\
+        .contact-form \{\
+            display: grid;\
+            grid-template-columns: repeat(2, 1fr);\
+            gap: 1.5rem;\
+            max-width: 700px;\
+            margin: 3rem auto 0 auto;\
+        \}\
+\
+        .form-group \{\
+            display: flex;\
+            flex-direction: column;\
+            gap: 8px;\
+        \}\
+\
+        .form-group.full-width \{\
+            grid-column: span 2;\
+        \}\
+\
+        .form-group label \{\
+            font-size: 0.85rem;\
+            color: var(--text-secondary);\
+            font-weight: 500;\
+        \}\
+\
+        .form-group input, .form-group textarea, .form-group select \{\
+            background: rgba(255, 255, 255, 0.04);\
+            border: 1px solid var(--border-color);\
+            border-radius: var(--radius-sm);\
+            padding: 12px 16px;\
+            color: var(--text-primary);\
+            font-family: var(--font-sans);\
+            font-size: 0.95rem;\
+            outline: none;\
+            transition: var(--transition);\
+        \}\
+\
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus \{\
+            border-color: var(--accent-red);\
+            background: rgba(255, 255, 255, 0.07);\
+        \}\
+\
+        /* Footer */\
+        footer \{\
+            padding: 4rem 0 2rem 0;\
+            background: #07090C;\
+            border-top: 1px solid var(--border-color);\
+            color: var(--text-muted);\
+            font-size: 0.85rem;\
+        \}\
+\
+        .footer-flex \{\
+            display: flex;\
+            justify-content: space-between;\
+            align-items: center;\
+            margin-bottom: 2rem;\
+        \}\
+\
+        /* Responsive */\
+        @media (max-width: 1024px) \{\
+            .hero-grid, .solution-layout, .specs-grid \{\
+                grid-template-columns: 1fr;\
+            \}\
+            .step-grid \{\
+                grid-template-columns: 1fr 1fr;\
+            \}\
+        \}\
+\
+        @media (max-width: 768px) \{\
+            .nav-links \{\
+                display: none;\
+            \}\
+            .step-grid \{\
+                grid-template-columns: 1fr;\
+            \}\
+            .contact-form \{\
+                grid-template-columns: 1fr;\
+            \}\
+            .form-group.full-width \{\
+                grid-column: span 1;\
+            \}\
+            .human-first-box \{\
+                padding: 2rem;\
+            \}\
+        \}\
+    </style>\
+</head>\
+<body>\
+\
+    <!-- Header / Nav -->\
+    <header>\
+        <div class="container nav-wrapper">\
+            <a href="#" class="logo">\
+                <i data-lucide="shield-alert" style="color: var(--accent-red);"></i>\
+                RESQ-X\
+                <span class="logo-badge">SYSTEMS</span>\
+            </a>\
+            <ul class="nav-links">\
+                <li><a href="#problem">Challenges</a></li>\
+                <li><a href="#solution">Solution</a></li>\
+                <li><a href="#technology">Technology</a></li>\
+                <li><a href="#safety">Human-Control</a></li>\
+                <li><a href="#specs">Specifications</a></li>\
+                <li><a href="#pricing">Pricing</a></li>\
+            </ul>\
+            <a href="#contact" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem;">Request Demo</a>\
+        </div>\
+    </header>\
+\
+    <!-- Hero Section -->\
+    <section class="hero">\
+        <div class="container">\
+            <div class="hero-grid">\
+                <div class="hero-content">\
+                    <div class="tag">\
+                        <span class="tag-dot"></span> Next-Gen Rescue Technology\
+                    </div>\
+                    <h1>Rescue should not stop where roads end.</h1>\
+                    <p class="hero-subheadline">\
+                        RESQ-X brings medical assistance and evacuation capability to mountains, rubble, forests, and other inaccessible environments.\
+                    </p>\
+                    <div class="hero-actions">\
+                        <a href="#solution" class="btn btn-primary">\
+                            Discover RESQ-X <i data-lucide="arrow-right"></i>\
+                        </a>\
+                        <a href="#how-it-works" class="btn btn-secondary">\
+                            <i data-lucide="play-circle"></i> See It In Action\
+                        </a>\
+                    </div>\
+                </div>\
+                <div class="hero-image-wrapper">\
+                    <!-- Image render insertion -->\
+                    <img src="image_afe745.jpg" alt="RESQ-X Advanced Electric Rescue Vehicle climbing complex terrain">\
+                    <div class="hero-overlay-status">\
+                        <i data-lucide="activity" style="color: #34C759;"></i>\
+                        <span class="mono">SYSTEM STATUS: OPERATIONAL / TERRAIN: ACTIVE</span>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </section>\
+\
+    <!-- Section 1 \'97 The Problem -->\
+    <section id="problem">\
+        <div class="container">\
+            <div class="tag"><span class="tag-dot"></span> Operational Challenges</div>\
+            <h2>Some victims are beyond the reach of conventional vehicles.</h2>\
+            <p class="section-subtitle">Traditional emergency response units face severe physical and environmental limits when deployed in hazardous or extreme conditions.</p>\
+            \
+            <div class="problem-grid">\
+                <div class="problem-card">\
+                    <div class="problem-icon">\
+                        <i data-lucide="mountain"></i>\
+                    </div>\
+                    <h3>1. Inaccessible Terrain</h3>\
+                    <p>4x4 vehicles, quads, and conventional ground rescue equipment struggle with narrow forest trails, steep mountain inclines, dense rubble, and active landslide zones.</p>\
+                </div>\
+\
+                <div class="problem-card">\
+                    <div class="problem-icon">\
+                        <i data-lucide="user-x"></i>\
+                    </div>\
+                    <h3>2. Rescuer Fatigue</h3>\
+                    <p>Transporting heavy medical equipment and stretcher systems over long distances and unstable ground exposes human rescuers to physical exhaustion and unnecessary risk.</p>\
+                </div>\
+\
+                <div class="problem-card">\
+                    <div class="problem-icon">\
+                        <i data-lucide="volume-2"></i>\
+                    </div>\
+                    <h3>3. Environmental Constraints</h3>\
+                    <p>Helicopters and combustion-powered rescue vehicles generate severe noise, exhaust emissions, and environmental turbulence, often hindering local rescue communication.</p>\
+                </div>\
+            </div>\
+        </div>\
+    </section>\
+\
+    <!-- Section 2 \'97 The Solution -->\
+    <section id="solution">\
+        <div class="container">\
+            <div class="solution-layout">\
+                <div>\
+                    <div class="tag"><span class="tag-dot"></span> The RESQ-X Platform</div>\
+                    <h2>Engineered for extreme recovery missions.</h2>\
+                    <p class="section-subtitle">\
+                        RESQ-X is an electric, remotely supervised quadrupedal rescue vehicle built to reach victims where conventional transport fails.\
+                    </p>\
+                    <div class="solution-features">\
+                        <div class="solution-feature-item">\
+                            <i data-lucide="check-circle-2"></i>\
+                            <span>4 Articulated Electric Legs</span>\
+                        </div>\
+                        <div class="solution-feature-item">\
+                            <i data-lucide="check-circle-2"></i>\
+                            <span>Remote Human Supervision</span>\
+                        </div>\
+                        <div class="solution-feature-item">\
+                            <i data-lucide="check-circle-2"></i>\
+                            <span>AI-Assisted Terrain Analysis</span>\
+                        </div>\
+                        <div class="solution-feature-item">\
+                            <i data-lucide="check-circle-2"></i>\
+                            <span>Stabilized Rescue Stretcher</span>\
+                        </div>\
+                        <div class="solution-feature-item">\
+                            <i data-lucide="check-circle-2"></i>\
+                            <span>Medical Support Arms</span>\
+                        </div>\
+                        <div class="solution-feature-item">\
+                            <i data-lucide="check-circle-2"></i>\
+                            <span>Vital-Sign Monitoring</span>\
+                        </div>\
+                        <div class="solution-feature-item">\
+                            <i data-lucide="check-circle-2"></i>\
+                            <span>Night & Low-Vis Optics</span>\
+                        </div>\
+                        <div class="solution-feature-item">\
+                            <i data-lucide="check-circle-2"></i>\
+                            <span>Zero Operational Emissions</span>\
+                        </div>\
+                    </div>\
+                </div>\
+                <div class="hero-image-wrapper">\
+                    <img src="image_afe745.jpg" alt="RESQ-X Articulated Vehicle Details">\
+                </div>\
+            </div>\
+        </div>\
+    </section>\
+\
+    <!-- Section 3 \'97 How It Works -->\
+    <section id="how-it-works">\
+        <div class="container">\
+            <div class="tag"><span class="tag-dot"></span> Operational Workflow</div>\
+            <h2>A 5-step life-saving visual journey.</h2>\
+            <p class="section-subtitle">Seamless integration into existing emergency deployment protocols.</p>\
+            \
+            <div class="step-grid">\
+                <div class="step-card">\
+                    <span class="step-number">STEP 01</span>\
+                    <h3>Detect</h3>\
+                    <p>Integrated LiDAR, thermal imaging, and acoustic sensors identify the victim and map the surrounding terrain grid.</p>\
+                </div>\
+\
+                <div class="step-card">\
+                    <span class="step-number">STEP 02</span>\
+                    <h3>Approach</h3>\
+                    <p>A trained operator remotely guides RESQ-X through complex obstacles while onboard AI evaluates footing stability.</p>\
+                </div>\
+\
+                <div class="step-card">\
+                    <span class="step-number">STEP 03</span>\
+                    <h3>Stabilize</h3>\
+                    <p>The specialized rescue module securely and carefully positions the patient onto the active-suspension stretcher.</p>\
+                </div>\
+\
+                <div class="step-card">\
+                    <span class="step-number">STEP 04</span>\
+                    <h3>Monitor</h3>\
+                    <p>Non-invasive sensors continuously stream real-time vital metrics directly to medical response control centers.</p>\
+                </div>\
+\
+                <div class="step-card">\
+                    <span class="step-number">STEP 05</span>\
+                    <h3>Evacuate</h3>\
+                    <p>RESQ-X navigates back down optimal terrain routes, transporting the victim safely to first responders.</p>\
+                </div>\
+            </div>\
+        </div>\
+    </section>\
+\
+    <!-- Section 4 \'97 Technology -->\
+    <section id="technology">\
+        <div class="container">\
+            <div class="tag"><span class="tag-dot"></span> Core Systems</div>\
+            <h2>Advanced technology built for reliability.</h2>\
+            <p class="section-subtitle">Every subsystem is designed to deliver performance in extreme conditions.</p>\
+\
+            <div class="tech-grid">\
+                <div class="tech-card">\
+                    <i data-lucide="footprints" size="32"></i>\
+                    <h3>Quadrupedal Mobility</h3>\
+                    <p>Multi-axis articulated legs adapt to uneven ground, mud, snow, and boulders with dynamic self-balancing actuators.</p>\
+                </div>\
+\
+                <div class="tech-card">\
+                    <i data-lucide="cpu" size="32"></i>\
+                    <h3>AI-Assisted Navigation</h3>\
+                    <p>Onboard neural networks process real-time spatial data to recommend optimal footing points without replacing operator control.</p>\
+                </div>\
+\
+                <div class="tech-card">\
+                    <i data-lucide="eye" size="32"></i>\
+                    <h3>Thermal & Low-Light Vision</h3>\
+                    <p>Dual spectral thermal optics cut through dense fog, darkness, and smoke to maintain full situational awareness.</p>\
+                </div>\
+\
+                <div class="tech-card">\
+                    <i data-lucide="radar" size="32"></i>\
+                    <h3>Environmental Sensors</h3>\
+                    <p>Continuous monitoring of ambient temperature, air toxicity, structural integrity, and elevation metrics.</p>\
+                </div>\
+\
+                <div class="tech-card">\
+                    <i data-lucide="radio" size="32"></i>\
+                    <h3>Remote Human Control</h3>\
+                    <p>Ultra-low-latency encrypted radio control link allowing operators full command from safe standoff distances.</p>\
+                </div>\
+\
+                <div class="tech-card">\
+                    <i data-lucide="zap" size="32"></i>\
+                    <h3>Electric Propulsion</h3>\
+                    <p>High-torque brushless electric motors provide silent, instant power with low maintenance overhead.</p>\
+                </div>\
+\
+                <div class="tech-card">\
+                    <i data-lucide="heart-pulse" size="32"></i>\
+                    <h3>Medical Monitoring</h3>\
+                    <p>Non-invasive biometrics module continuously measures heart rate, blood oxygen levels, and core temperature.</p>\
+                </div>\
+\
+                <div class="tech-card">\
+                    <i data-lucide="cross" size="32"></i>\
+                    <h3>Stabilized Stretcher</h3>\
+                    <p>Active gyroscopic dampening ensures patient orientation remains level regardless of vehicle body incline.</p>\
+                </div>\
+            </div>\
+        </div>\
+    </section>\
+\
+    <!-- Section 5 \'97 Human-First Design -->\
+    <section id="safety">\
+        <div class="container">\
+            <div class="human-first-box">\
+                <div class="tag"><span class="tag-dot"></span> Control Architecture</div>\
+                <h2>Technology serves the rescuer. People remain in control.</h2>\
+                <p style="color: var(--text-secondary); max-width: 700px; margin-top: 1rem;">\
+                    RESQ-X is strictly engineered to empower professional search and rescue teams. Autonomous subroutines assist with terrain navigation, but critical life-support and maneuver decisions remain under human authority.\
+                </p>\
+\
+                <div class="human-list">\
+                    <div class="human-item">\
+                        <i data-lucide="shield-check"></i>\
+                        <span>Human operator supervision</span>\
+                    </div>\
+                    <div class="human-item">\
+                        <i data-lucide="power"></i>\
+                        <span>Hardware emergency stop</span>\
+                    </div>\
+                    <div class="human-item">\
+                        <i data-lucide="sliders"></i>\
+                        <span>Controlled rescue-arm movement</span>\
+                    </div>\
+                    <div class="human-item">\
+                        <i data-lucide="heart-handshake"></i>\
+                        <span>Active patient stabilization</span>\
+                    </div>\
+                    <div class="human-item">\
+                        <i data-lucide="activity"></i>\
+                        <span>Real-time vital telemetry</span>\
+                    </div>\
+                    <div class="human-item">\
+                        <i data-lucide="lock"></i>\
+                        <span>Encrypted communications</span>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </section>\
+\
+    <!-- Section 6 \'97 Environmental Responsibility -->\
+    <section>\
+        <div class="container">\
+            <div class="tag"><span class="tag-dot"></span> Ecosystem Impact</div>\
+            <h2>Less noise. No direct emissions during operation.</h2>\
+            <p class="section-subtitle">\
+                Electric drivetrain propulsion significantly minimizes direct operational exhaust and acoustic disturbance, making it ideal for deployments in fragile ecosystems, national forests, and protected natural wilderness areas.\
+            </p>\
+        </div>\
+    </section>\
+\
+    <!-- Section 7 \'97 Adaptability -->\
+    <section>\
+        <div class="container">\
+            <div class="tag"><span class="tag-dot"></span> Modular Evolution</div>\
+            <h2>Designed to evolve with every mission.</h2>\
+            <p class="section-subtitle">\
+                Built on an extensible architecture, RESQ-X continuously improves through real-world deployment telemetry, operator insights, software updates, and expandable specialized medical modules.\
+            </p>\
+        </div>\
+    </section>\
+\
+    <!-- Section 8 \'97 Use Cases -->\
+    <section id="use-cases">\
+        <div class="container">\
+            <div class="tag"><span class="tag-dot"></span> Tactical Applications</div>\
+            <h2>Built for critical rescue scenarios.</h2>\
+            <p class="section-subtitle">Versatile deployment across high-risk terrain types.</p>\
+\
+            <div class="use-case-grid">\
+                <div class="use-case-card">\
+                    <div class="use-case-body">\
+                        <i data-lucide="mountain-snow" style="color: var(--accent-red); margin-bottom: 1rem;" size="36"></i>\
+                        <h3>Mountain Rescue</h3>\
+                        <p>Traversing scree fields, steep cliff bases, and alpine paths where heavy vehicles cannot pass.</p>\
+                    </div>\
+                </div>\
+\
+                <div class="use-case-card">\
+                    <div class="use-case-body">\
+                        <i data-lucide="building-2" style="color: var(--accent-red); margin-bottom: 1rem;" size="36"></i>\
+                        <h3>Rockslides & Rubble</h3>\
+                        <p>Navigating structural collapse zones and landslide fields safely following earthquakes or severe weather.</p>\
+                    </div>\
+                </div>\
+\
+                <div class="use-case-card">\
+                    <div class="use-case-body">\
+                        <i data-lucide="trees" style="color: var(--accent-red); margin-bottom: 1rem;" size="36"></i>\
+                        <h3>Forest Rescue</h3>\
+                        <p>Navigating thick timberlands, unpaved underbrush, and narrow wilderness corridors.</p>\
+                    </div>\
+                </div>\
+\
+                <div class="use-case-card">\
+                    <div class="use-case-body">\
+                        <i data-lucide="waves" style="color: var(--accent-red); margin-bottom: 1rem;" size="36"></i>\
+                        <h3>Flood & Disaster Response</h3>\
+                        <p>Operating through standing water, mud deposits, and storm debris fields during emergency evacuations.</p>\
+                    </div>\
+                </div>\
+\
+                <div class="use-case-card">\
+                    <div class="use-case-body">\
+                        <i data-lucide="moon" style="color: var(--accent-red); margin-bottom: 1rem;" size="36"></i>\
+                        <h3>Night Rescue Operations</h3>\
+                        <p>Using thermal vision systems to locate casualties in total darkness without relying solely on spotlights.</p>\
+                    </div>\
+                </div>\
+\
+                <div class="use-case-card">\
+                    <div class="use-case-body">\
+                        <i data-lucide="compass" style="color: var(--accent-red); margin-bottom: 1rem;" size="36"></i>\
+                        <h3>Remote Wilderness</h3>\
+                        <p>Extending team operational range across vast nature reserves without exhaustion.</p>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </section>\
+\
+    <!-- Section 9 \'97 The Future -->\
+    <section>\
+        <div class="container">\
+            <div class="tag"><span class="tag-dot"></span> Technology Roadmap</div>\
+            <h2>Today, remotely supervised. Tomorrow, even smarter.</h2>\
+            <p class="section-subtitle">\
+                Our vision balances progressive automation with safety. As autonomous navigation algorithms mature, RESQ-X will take on greater pathfinding autonomy while strictly preserving human authority over medical and life-critical decisions.\
+            </p>\
+        </div>\
+    </section>\
+\
+    <!-- Section 10 \'97 For Professionals -->\
+    <section>\
+        <div class="container">\
+            <div class="tag"><span class="tag-dot"></span> Professional Organizations</div>\
+            <h2>Equipping first-responder organizations.</h2>\
+            <p class="section-subtitle">Designed specifically for integration into emergency service fleets.</p>\
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">\
+                <span class="tag" style="color: var(--text-primary); border-color: var(--border-color); font-weight: 500;">Mountain Rescue Organizations</span>\
+                <span class="tag" style="color: var(--text-primary); border-color: var(--border-color); font-weight: 500;">Fire & Rescue Services</span>\
+                <span class="tag" style="color: var(--text-primary); border-color: var(--border-color); font-weight: 500;">Civil Protection Agencies</span>\
+                <span class="tag" style="color: var(--text-primary); border-color: var(--border-color); font-weight: 500;">Disaster Response Corps</span>\
+            </div>\
+        </div>\
+    </section>\
+\
+    <!-- Section 11 \'97 Specifications -->\
+    <section id="specs">\
+        <div class="container">\
+            <div class="tag"><span class="tag-dot"></span> Technical Data</div>\
+            <h2>System Specifications</h2>\
+            <p class="section-subtitle">*Conceptual prototype specifications subject to ongoing testing and validation.</p>\
+\
+            <div class="specs-grid">\
+                <div>\
+                    <div class="spec-item">\
+                        <span class="spec-label">Drivetrain</span>\
+                        <span class="spec-value">Electric Brushless Quad-Drive</span>\
+                    </div>\
+                    <div class="spec-item">\
+                        <span class="spec-label">Locomotion</span>\
+                        <span class="spec-value">4-Leg Articulated System</span>\
+                    </div>\
+                    <div class="spec-item">\
+                        <span class="spec-label">Control Mode</span>\
+                        <span class="spec-value">Remote Supervised / Encrypted RF</span>\
+                    </div>\
+                    <div class="spec-item">\
+                        <span class="spec-label">Stretcher Unit</span>\
+                        <span class="spec-value">Active Gyro-Stabilized Module</span>\
+                    </div>\
+                </div>\
+                <div>\
+                    <div class="spec-item">\
+                        <span class="spec-label">Medical Telemetry</span>\
+                        <span class="spec-value">Integrated Vital-Sign Sensors</span>\
+                    </div>\
+                    <div class="spec-item">\
+                        <span class="spec-label">Vision Suite</span>\
+                        <span class="spec-value">HD Optics + LWIR Thermal</span>\
+                    </div>\
+                    <div class="spec-item">\
+                        <span class="spec-label">Pathfinding Assistance</span>\
+                        <span class="spec-value">Real-Time AI Terrain Mapping</span>\
+                    </div>\
+                    <div class="spec-item">\
+                        <span class="spec-label">Terrain Rating</span>\
+                        <span class="spec-value">Grade 5 Extreme All-Terrain</span>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </section>\
+\
+    <!-- Section 12 \'97 Pricing -->\
+    <section id="pricing">\
+        <div class="container">\
+            <div class="tag"><span class="tag-dot"></span> Deployment Model</div>\
+            <h2>Commercial Investment</h2>\
+            <p class="section-subtitle" style="text-align: center; margin: 0 auto 3rem auto;">Realistic B2B procurement structure for municipal and professional teams.</p>\
+\
+            <div class="pricing-box">\
+                <div class="tag">Conceptual Launch Pricing</div>\
+                <h3>RESQ-X Professional Unit</h3>\
+                <div class="pricing-price">\'80180,000</div>\
+                <p style="color: var(--text-secondary);">Complete turn-key emergency vehicle deployment package.</p>\
+\
+                <ul class="pricing-includes">\
+                    <li><i data-lucide="check"></i> Base Quadrupedal Vehicle</li>\
+                    <li><i data-lucide="check"></i> Rescue Stretcher System</li>\
+                    <li><i data-lucide="check"></i> Remote Control Command Station</li>\
+                    <li><i data-lucide="check"></i> Medical Monitoring Module</li>\
+                    <li><i data-lucide="check"></i> Operator Training Package</li>\
+                </ul>\
+\
+                <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem; margin-top: 1.5rem; color: var(--text-secondary); font-size: 0.9rem;">\
+                    <strong>Optional Service Fleet Agreement:</strong> \'802,500 / month<br>\
+                    Includes regular software updates, round-the-clock technical support, and predictive maintenance.\
+                </div>\
+            </div>\
+        </div>\
+    </section>\
+\
+    <!-- Final CTA & Contact -->\
+    <section id="contact" style="background: radial-gradient(circle at 50% 100%, rgba(255, 59, 48, 0.1) 0%, rgba(10, 13, 16, 1) 70%);">\
+        <div class="container" style="text-align: center;">\
+            <div class="tag"><span class="tag-dot"></span> Fleet Procurement</div>\
+            <h2 style="font-size: clamp(2.5rem, 5vw, 3.8rem); max-width: 900px; margin: 0 auto 1.5rem auto;">\
+                WHEN THE TERRAIN STOPS VEHICLES,<br>RESQ-X KEEPS MOVING.\
+            </h2>\
+            <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2.5rem auto;">\
+                Equip the people who go where nobody else can. Request an evaluation demonstration for your rescue team.\
+            </p>\
+\
+            <!-- Contact Form -->\
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Demonstration request submitted successfully.');">\
+                <div class="form-group">\
+                    <label>First & Last Name</label>\
+                    <input type="text" placeholder="Commander Jane Doe" required>\
+                </div>\
+                <div class="form-group">\
+                    <label>Organization / Agency</label>\
+                    <input type="text" placeholder="Alpine Mountain Rescue Service" required>\
+                </div>\
+                <div class="form-group">\
+                    <label>Official Email</label>\
+                    <input type="email" placeholder="j.doe@mountainrescue.org" required>\
+                </div>\
+                <div class="form-group">\
+                    <label>Country / Region</label>\
+                    <input type="text" placeholder="Switzerland" required>\
+                </div>\
+                <div class="form-group full-width">\
+                    <label>Deployment Operational Requirements</label>\
+                    <textarea rows="4" placeholder="Specify your primary operational terrain (e.g. avalanche response, dense forest, disaster recovery)..."></textarea>\
+                </div>\
+                <div class="form-group full-width">\
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px;">\
+                        Request Tactical Demonstration <i data-lucide="send"></i>\
+                    </button>\
+                </div>\
+            </form>\
+        </div>\
+    </section>\
+\
+    <!-- Footer -->\
+    <footer>\
+        <div class="container">\
+            <div class="footer-flex">\
+                <a href="#" class="logo">\
+                    <i data-lucide="shield-alert" style="color: var(--accent-red);"></i>\
+                    RESQ-X\
+                </a>\
+                <div>\
+                    &copy; 2026 RESQ-X Systems Inc. All rights reserved.\
+                </div>\
+            </div>\
+            <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center;">\
+                RESQ-X is a conceptual emergency technology vehicle brand. Designed strictly for professional search-and-rescue evaluation.\
+            </p>\
+        </div>\
+    </footer>\
+\
+    <!-- Lucide Icons Script Initialization -->\
+    <script>\
+        lucide.createIcons();\
+    </script>\
+</body>\
+</html>}
